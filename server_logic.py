@@ -41,11 +41,11 @@ def avoid_my_neck(
 def avoid_wall(
     body: List[Dict[str, int]], possible_moves: Set[str], hight: int, width: int
 ) -> List[str]:
-    if "up" in possible_moves and body[0]["y"] == hight:
+    if "up" in possible_moves and body[0]["y"] + 1 == hight:
         possible_moves.remove("up")
     if "down" in possible_moves and body[0]["y"] == 0:
         possible_moves.remove("down")
-    if "right" in possible_moves and body[0]["x"] == width:
+    if "right" in possible_moves and body[0]["x"] + 1 == width:
         possible_moves.remove("right")
     if "left" in possible_moves and body[0]["x"] == 0:
         possible_moves.remove("left")

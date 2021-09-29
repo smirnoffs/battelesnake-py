@@ -6,11 +6,11 @@ import pytest
     "expected, body, hight, width",
     (
         ({"right", "left", "down", "up"}, [{"x": 3, "y": 3}], 20, 20),
-        ({"right", "left", "down"}, [{"x": 3, "y": 20}], 20, 20),
+        ({"right", "left", "down"}, [{"x": 3, "y": 19}], 20, 20),
         ({"right", "left", "up"}, [{"x": 1, "y": 0}], 20, 20),
         ({"right", "left", "up"}, [{"x": 1, "y": 0}], 20, 20),
         ({"right", "up"}, [{"x": 0, "y": 0}], 20, 20),
-        ({"left", "down"}, [{"x": 20, "y": 20}], 20, 20),
+        ({"left", "down"}, [{"x": 19, "y": 19}], 20, 20),
     ),
 )
 def test_avoid_wall(expected, body, hight, width):
