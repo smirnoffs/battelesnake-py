@@ -26,7 +26,7 @@ class AvoidNeckTest(unittest.TestCase):
         # Arrange
         test_head = {"x": 5, "y": 5}
         test_body = [{"x": 5, "y": 5}, {"x": 5, "y": 5}, {"x": 5, "y": 5}]
-        possible_moves = ["up", "down", "left", "right"]
+        possible_moves = {"up", "down", "left", "right"}
 
         # Act
         result_moves = avoid_my_neck(test_head, test_body, possible_moves)
@@ -39,8 +39,8 @@ class AvoidNeckTest(unittest.TestCase):
         # Arrange
         test_head = {"x": 5, "y": 5}
         test_body = [{"x": 5, "y": 5}, {"x": 4, "y": 5}, {"x": 3, "y": 5}]
-        possible_moves = ["up", "down", "left", "right"]
-        expected = ["up", "down", "right"]
+        possible_moves = {"up", "down", "left", "right"}
+        expected = {"up", "down", "right"}
 
         # Act
         result_moves = avoid_my_neck(test_head, test_body, possible_moves)
@@ -53,8 +53,8 @@ class AvoidNeckTest(unittest.TestCase):
         # Arrange
         test_head = {"x": 5, "y": 5}
         test_body = [{"x": 5, "y": 5}, {"x": 6, "y": 5}, {"x": 7, "y": 5}]
-        possible_moves = ["up", "down", "left", "right"]
-        expected = ["up", "down", "left"]
+        possible_moves = {"up", "down", "left", "right"}
+        expected = {"up", "down", "left"}
 
         # Act
         result_moves = avoid_my_neck(test_head, test_body, possible_moves)
@@ -67,8 +67,8 @@ class AvoidNeckTest(unittest.TestCase):
         # Arrange
         test_head = {"x": 5, "y": 5}
         test_body = [{"x": 5, "y": 5}, {"x": 5, "y": 6}, {"x": 5, "y": 7}]
-        possible_moves = ["up", "down", "left", "right"]
-        expected = ["down", "left", "right"]
+        possible_moves = {"up", "down", "left", "right"}
+        expected = ["down", "left", "right"}
 
         # Act
         result_moves = avoid_my_neck(test_head, test_body, possible_moves)
@@ -81,14 +81,24 @@ class AvoidNeckTest(unittest.TestCase):
         # Arrange
         test_head = {"x": 5, "y": 5}
         test_body = [{"x": 5, "y": 5}, {"x": 5, "y": 4}, {"x": 5, "y": 3}]
-        possible_moves = ["up", "down", "left", "right"]
-        expected = ["up", "left", "right"]
+        possible_moves = {"up", "down", "left", "right"}
+        expected = {"up", "left", "right"}
 
         # Act
         result_moves = avoid_my_neck(test_head, test_body, possible_moves)
 
         # Assert
         self.assertEqual(len(result_moves), 3)
+        self.assertEqual(expected, result_moves)
+
+    def test_avoid_neck_head_only(self):
+        test_head = {"x": 22, "y": 22}
+        test_body = {"x": 22, "y": 22}
+        possible_moves = {"up", "down", "left", "right"}
+        expected = {"up", "down", "left", "right"}
+
+        result_moves = avoid_my_neck(test_head, test_body, possible_moves)
+
         self.assertEqual(expected, result_moves)
 
 
