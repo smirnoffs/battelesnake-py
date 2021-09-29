@@ -83,7 +83,7 @@ def choose_move(data: dict) -> str:
     possible_moves = avoid_my_neck(my_head, my_body, possible_moves)
 
     possible_moves = avoid_wall(
-        my_body, possible_moves, data["board"]["hight"], data["board"]["width"]
+        my_body, possible_moves, data["board"]["height"], data["board"]["width"]
     )
     # TODO: Using information from 'data', find the edges of the board and don't let your Battlesnake move beyond them
     # board_height = ?
